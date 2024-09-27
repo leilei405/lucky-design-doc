@@ -1,17 +1,16 @@
-import React, { FC, useState } from "react";
-import classNames from "classnames";
-import { IMenuProps, IMenuContext, MenuContext, IMenuItemProps } from "./types";
+import classNames from 'classnames';
+import React, { FC, useState } from 'react';
+import { IMenuContext, IMenuItemProps, IMenuProps, MenuContext } from './types';
 
 const Menu: FC<IMenuProps> = (props) => {
   const {
-    mode = "horizontal",
+    mode = 'horizontal',
     theme,
     style,
     children,
     onSelect,
     className,
-    defaultActive,
-    defaultIndex = "0",
+    defaultIndex = '0',
     defaultOpenSubMenus = [],
     ...restProps
   } = props || {};
@@ -19,22 +18,22 @@ const Menu: FC<IMenuProps> = (props) => {
   // 默认选中第一个
   const [currentActive, setCurrentActive] = useState(defaultIndex);
 
-  const classes = classNames("lucky-menu", className, {
-    "lucky-menu-vertical": mode === "vertical",
-    "lucky-menu-horizontal": mode !== "vertical",
-    "lucky-menu-dark": theme === "dark",
+  const classes = classNames('lucky-menu', className, {
+    'lucky-menu-vertical': mode === 'vertical',
+    'lucky-menu-horizontal': mode !== 'vertical',
+    'lucky-menu-dark': theme === 'dark',
   });
 
   const handleClick = (idx: string) => {
     setCurrentActive(idx);
-    if (typeof onSelect === "function" && onSelect) {
+    if (typeof onSelect === 'function' && onSelect) {
       onSelect(idx);
     }
   };
 
   // 需要传递给子组件的context
   const passedContext: IMenuContext = {
-    index: currentActive ? currentActive : "0",
+    index: currentActive ? currentActive : '0',
     onSelect: handleClick,
     mode,
     defaultOpenSubMenus,
@@ -48,13 +47,13 @@ const Menu: FC<IMenuProps> = (props) => {
       // 如果是MenuItem或者SubMenu，则进行渲染
       // 否则，提示错误
       const { displayName } = childElement.type;
-      if (displayName === "MenuItem" || displayName === "SubMenu") {
+      if (displayName === 'MenuItem' || displayName === 'SubMenu') {
         return React.cloneElement(childElement, {
           index: index.toString(),
         });
       } else {
         console.warn(
-          "Warning: [LuckyMenu] Menu can only contain `MenuItem` and `SubMenu` as children."
+          'Warning: [LuckyMenu] Menu can only contain `MenuItem` and `SubMenu` as children.',
         );
         return null;
       }

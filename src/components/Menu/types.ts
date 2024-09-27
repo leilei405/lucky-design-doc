@@ -1,9 +1,9 @@
-import { createContext, CSSProperties, ReactNode } from "react";
+import { createContext, CSSProperties, ReactNode } from 'react';
 
 /** 菜单模式 vertical | horizontal */
-type MenuMode = "vertical" | "horizontal";
+type MenuMode = 'vertical' | 'horizontal';
 /** 菜单主题 light | dark */
-type MenuTheme = "light" | "dark";
+type MenuTheme = 'light' | 'dark';
 /** SelectCallback */
 type SelectCallback = (selectedIndex: string) => void;
 
@@ -16,7 +16,7 @@ export interface IMenuContext {
 }
 
 /** 给Menu组件添加一个context，用于给子组件传递index和onSelect 默认给选中第一项 */
-export const MenuContext = createContext<IMenuContext>({ index: "0" });
+export const MenuContext = createContext<IMenuContext>({ index: '0' });
 
 /** Menu Component Properties */
 export interface IMenuProps {
@@ -25,7 +25,6 @@ export interface IMenuProps {
   className?: string;
   style?: CSSProperties;
   defaultIndex?: string;
-  defaultActive?: string;
   children?: ReactNode;
   onSelect?: SelectCallback;
 

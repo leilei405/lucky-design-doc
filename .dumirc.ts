@@ -12,4 +12,9 @@ export default defineConfig({
   themeConfig: {
     name: 'lucky-design',
   },
+  // 打开多语言入口
+  locales: [
+    { id: 'zh-CN', name: '中文简体' },
+    { id: 'en-US', name: 'English' },
+  ],
 });

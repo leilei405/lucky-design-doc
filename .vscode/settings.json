@@ -1,7 +1,14 @@
 {
     "cSpell.words": [
+        "commitlint",
         "dumi",
         "dumirc",
-        "leilei"
+        "fontawesome",
+        "fortawesome",
+        "leilei",
+        "packagejson",
+        "stylelint",
+        "testid",
+        "umijs"
     ]
 }

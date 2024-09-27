@@ -15,7 +15,11 @@ import {
   spaceSize,
 } from './types';
 
-interface ConfigProviderProps extends PropsWithChildren<ConfigContextType> {}
+interface ConfigProviderProps extends PropsWithChildren<ConfigContextType> {
+  space: {
+    size: 'small';
+  };
+}
 
 export function ConfigProvider(props: ConfigProviderProps) {
   const { space, children } = props;
@@ -36,7 +40,7 @@ const Space: FC<SpaceProps> = (props) => {
   const {
     className,
     style,
-    children,
+    children = [],
     size = space?.size || 'small',
     direction = 'horizontal',
     wrap = false,
@@ -46,7 +50,7 @@ const Space: FC<SpaceProps> = (props) => {
   } = props || {};
 
   // 通过Children平铺元素
-  const childNodes = Children.toArray(props.children);
+  const childNodes = Children.toArray(children);
 
   const mergedAlign =
     direction === 'horizontal' && align === undefined ? 'center' : align;
