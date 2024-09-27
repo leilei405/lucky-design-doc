@@ -1,11 +1,11 @@
-import React, { FC } from "react";
-import classNames from "classnames";
+import classNames from 'classnames';
+import React, { FC } from 'react';
 
-import { ButtonProps } from "./types";
+import { ButtonProps } from './types';
 
 export const Button: FC<ButtonProps> = (props) => {
   const {
-    type = "default",
+    type = 'default',
     className,
     disabled = false,
     size,
@@ -14,13 +14,13 @@ export const Button: FC<ButtonProps> = (props) => {
     ...restProps
   } = props;
 
-  const classes = classNames("btn", className, {
+  const classes = classNames('btn', className, {
     [`lucky-btn-${type}`]: type,
     [`lucky-btn-${size}`]: size,
-    disabled: type === "link" && disabled,
+    disabled: type === 'link' && disabled,
   });
 
-  if (type === "link" && href) {
+  if (type === 'link' && href) {
     return (
       <a className={classes} href={href} {...restProps}>
         {children}
@@ -28,14 +28,17 @@ export const Button: FC<ButtonProps> = (props) => {
     );
   } else {
     return (
-      <button className={classes} disabled={disabled} {...restProps}>
+      <button
+        type="button"
+        className={classes}
+        disabled={disabled}
+        {...restProps}
+      >
         {children}
       </button>
     );
   }
 };
-
-export default Button;
 
 // 这种方式已被弃用，直接在组件内部props解构时候进行赋初始默认值
 // Button.defaultProps = {
