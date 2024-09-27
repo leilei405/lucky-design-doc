@@ -1,0 +1,133 @@
+.btn {
+    position: relative;
+    display: inline-block;
+    font-weight: $btn-font-weight;
+    line-height: $btn-line-height;
+    color: $body-color;
+    white-space: nowrap;
+    text-align: center;
+    vertical-align: middle;
+    background-image: none;
+    border: $btn-border-width solid transparent;
+    @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $border-radius);
+    box-shadow: $btn-box-shadow;
+    cursor: pointer;
+    transition: $btn-transition;
+    &.disabled,
+    &[disabled] {
+        cursor: not-allowed;
+        opacity: $btn-disabled-opacity;
+        box-shadow: none;
+        > * {
+            pointer-events: none;
+        }
+    }
+  }
+  
+  // 小按钮样式
+  .lucky-btn-small {
+    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm);
+  }
+  
+  // 大按钮样式
+  .lucky-btn-large {
+    @include button-size($btn-padding-y-lg, $btn-padding-y-lg, $btn-font-size-lg, $btn-border-radius-lg);
+  }
+  
+  // 默认按钮样式
+  .lucky-btn-default {
+    @include button-style($white, $gray-400, $body-color, $white, $primary, $primary)
+  }
+  
+  // 主按钮样式
+  .lucky-btn-primary {
+    @include button-style($primary, $primary, $white);
+    &:active {
+      box-shadow: 0 0 2px rgba(49, 130, 223, 0.6);
+    }
+    
+  }
+  
+  // 危险按钮样式
+  .lucky-btn-danger {
+    @include button-style($danger, $danger, $white);
+
+    &:active {
+      box-shadow: 0 0 2px rgba(228, 65, 57, 0.6);
+    }
+  }
+  
+  // 成功按钮样式
+  .lucky-btn-success {
+    @include button-style($success, $success, $white);
+
+    &:active {
+      box-shadow: 0 0 2px rgba(89, 235, 73, 0.6);
+    }
+  }
+  
+  // 警告按钮样式
+  .lucky-btn-warning {
+    @include button-style($warning, $warning, $white);
+
+    &:active {
+      box-shadow: 0 0 2px rgba(230, 196, 70, 0.6);
+    }
+  }
+  
+  // 提示按钮样式
+  .lucky-btn-info {
+    @include button-style($info, $info, $white);
+
+    &:active {
+      box-shadow: 0 0 2px rgba(52, 171, 180, 0.6);
+    }
+  }
+  
+  // 暗色按钮样式
+  .lucky-btn-secondary {
+    @include button-style($secondary, $secondary, $white);
+
+    &:active {
+      box-shadow: 0 0 2px rgba(162, 172, 181, 0.6);
+    }
+  }
+  
+  // 白色按钮样式
+  .lucky-btn-light {
+    @include button-style($light, $light, $black);
+
+    &:active {
+      box-shadow: 0 0 2px rgba(162, 172, 181, 0.6);
+    }
+  }
+  
+  // 黑色按钮样式
+  .lucky-btn-dark {
+    @include button-style($dark, $dark, $white);
+
+    &:active {
+      box-shadow: 0 0 2px rgba(69, 77, 85, 0.6);
+    }
+  }
+  
+  // 链接按钮样式
+  .lucky-btn-link {
+    font-weight: $font-weight-normal;
+    color: $btn-link-color;
+    text-decoration: $link-decoration;
+    box-shadow: none;
+    &:hover {
+        color: $btn-link-hover-color;
+        text-decoration: $link-hover-decoration;
+    }
+    &:focus,
+    &.focus {
+        text-decoration: $link-hover-decoration;
+        box-shadow: none;
+    }
+
+    &:active {
+      box-shadow: 0 0 2px rgba(69, 77, 85, 0.6);
+    }
+  }

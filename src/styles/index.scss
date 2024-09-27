@@ -1,0 +1,35 @@
+// 下划线开头的文件解释
+// Partials 最简单的理解就是它只能被 import
+// 不能被单独的编译成 css 文件。
+// 这是针对一次编译多个文件来说的，可以试一下
+// 一个文件夹两个 scss 文件，一个 root.scss,一个 _vars.scss。
+
+// config
+@import "variables";
+
+// layout
+@import "reboot";
+
+//mixin
+@import "mixins";
+
+// // animation
+@import "animation";
+
+// Button
+@import "../components/Button/style";
+
+// Alert
+@import "../components/Alert/style";
+
+// Menu
+@import "../components/Menu/style";
+
+// Tab
+@import "../components/Tab/style";
+
+// Icon 
+@import "../components/Icon/style";
+
+// Space
+@import "../components/Space/style";
